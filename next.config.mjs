@@ -1,4 +1,14 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-export default nextConfig;
+const nextConfig = {
+    reactStrictMode: true,
+    async rewrites() {
+      return [
+        {
+          source: '/admin',
+          destination: '/admin/index.html',
+        },
+      ]
+    },
+  }
+  
+  export default nextConfig;
