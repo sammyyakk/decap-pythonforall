@@ -1,4 +1,3 @@
-import { notFound } from 'next/navigation'
 import MarkdownPage from '../components/MarkdownPage'
 
 export default function DynamicPage({ params }) {
