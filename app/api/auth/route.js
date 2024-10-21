@@ -1,7 +1,6 @@
 import { AuthorizationCode } from 'simple-oauth2';
 
 export async function GET(req) {
-  const { host } = req.headers;
   const client = new AuthorizationCode({
     client: {
       id: process.env.OAUTH_CLIENT_ID,
