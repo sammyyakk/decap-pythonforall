@@ -18,7 +18,7 @@ export async function GET(req) {
   try {
     const tokenParams = {
       code,
-      redirect_uri: `https://${req.headers.host}/api/callback`,
+      redirect_uri: `https://decap-pythonforall.vercel.app/api/callback`,
     };
 
     const accessToken = await client.getToken(tokenParams);

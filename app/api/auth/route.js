@@ -15,7 +15,7 @@ export async function GET(req) {
   });
 
   const authorizationUri = client.authorizeURL({
-    redirect_uri: `https://${host}/api/callback`,  // Ensure this matches your GitHub OAuth callback URL
+    redirect_uri: `https://decap-pythonforall.vercel.app/api/callback`,  // Ensure this matches your GitHub OAuth callback URL
     scope: 'repo,user',
     state: 'randomstring',
   });
