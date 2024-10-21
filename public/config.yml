@@ -3,7 +3,8 @@ backend:
   repo: sammyyakk/decap-pythonforall
   branch: master
   base_url: https://decap-pythonforall.vercel.app/api
-  auth_scope: repo 
+  auth_scope: repo
+  site_domain: decap-pythonforall.vercel.app
 media_folder: public/images
 public_folder: /images
 collections:
