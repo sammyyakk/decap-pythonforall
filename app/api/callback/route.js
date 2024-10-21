@@ -29,7 +29,7 @@ export async function GET(req) {
       status: 301,
       headers: {
         'Set-Cookie': `access_token=${accessToken.token.access_token}; Path=/; HttpOnly; Secure; SameSite=Strict`,
-        'Location': '/admin',  // Redirect to the admin dashboard or your preferred route
+        'Location': '/admin#/collections/pages',  // Redirect to the admin dashboard or your preferred route
       },
     });
   } catch (error) {
