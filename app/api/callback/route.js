@@ -24,7 +24,14 @@ export async function GET(req) {
     const accessToken = await client.getToken(tokenParams);
     console.log('Access Token:', accessToken.token);
 
-    return new Response(JSON.stringify(accessToken.token), { status: 200 });
+    // Set the access token in a cookie and redirect to the /admin page
+    return new Response(null, {
+      status: 301,
+      headers: {
+        'Set-Cookie': `access_token=${accessToken.token.access_token}; Path=/; HttpOnly; Secure; SameSite=Strict`,
+        'Location': '/admin',  // Redirect to the admin dashboard or your preferred route
+      },
+    });
   } catch (error) {
     console.error('Access Token Error:', error.message);
     return new Response(JSON.stringify({ error: 'Access Token Error' }), { status: 500 });
