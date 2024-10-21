@@ -1,24 +1,13 @@
 import { NextResponse } from 'next/server';
-import Cors from 'cors';
-
-const cors = Cors({
-  methods: ['GET', 'HEAD'],
-});
-
-function runMiddleware(req, res, fn) {
-  return new Promise((resolve, reject) => {
-    fn(req, res, (result) => {
-      if (result instanceof Error) {
-        return reject(result);
-      }
-      return resolve(result);
-    });
-  });
-}
 
 export async function middleware(request) {
   const res = NextResponse.next();
-  await runMiddleware(request, res, cors);
+
+  // Set CORS headers manually
+  res.headers.set('Access-Control-Allow-Origin', '*');
+  res.headers.set('Access-Control-Allow-Methods', 'GET, HEAD');
+  res.headers.set('Access-Control-Allow-Headers', 'Content-Type');
+
   return res;
 }
 
